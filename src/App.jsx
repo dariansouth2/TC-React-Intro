@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 // import './App.css';
 import React from 'react'
+import FilmsList from './components/filmsList';
 
 // function App() {
 //   return (
@@ -81,6 +82,7 @@ class App extends React.Component {
             return <li key = {index}>{item}</li>
           })}
         </ul>
+        <FilmsList />
       </div>
     );
   }
