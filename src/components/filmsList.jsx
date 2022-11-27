@@ -10,18 +10,9 @@ class FilmsList extends Component{
     }
     getFilms(){
         fetch('https://ghibliapi.herokuapp.com/films')
-        .then((res) => {
-            return res.json();
-        })
-        .then((result)=>{
-            console.log(result)
-            this.setState({
-                list:result,
-            });
-        })
-        .catch((error)=>{
-            console.log(error)
-        });
+        .then((response) => response.json())
+        .them((films) => this.setState({list:films}))
+        .catch((error) => console.error(error));
     }
 
     componentDidMount(){
@@ -29,11 +20,13 @@ class FilmsList extends Component{
     }
 
     render() {
-      return <ul>
-        {this.state.list.map((element, index, array) =>{
-            return <li key={element.id}>{element.title}</li>
-        })}
-      </ul>;
+      return (
+        <ul>
+            {this.state.list.map((film) => {
+                return <li key={film.id}>{film.title}</li>;
+            })}
+        </ul>
+      );
     }
   }
 

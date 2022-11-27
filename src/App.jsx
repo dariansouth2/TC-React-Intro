@@ -1,36 +1,7 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 import React from 'react'
 import FilmsList from './components/filmsList';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//          React is so cool!
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//       <h1>
-//         <p></p>
-//         <ul>
-//           <li></li>
-//           <li></li>
-//           <li></li>
-//         </ul>
-//       </h1>
-//     </div>
-//   );
-// }
 
 class App extends React.Component {
 
@@ -63,23 +34,17 @@ class App extends React.Component {
     return (
       <div>
         <h1>Hello World</h1>
+        <form onSubmit = {this.onSubmit}> 
         <input
         type = 'text'
         value = {this.state.next}
-        onChange={this.handleInput}
+        onChange={(event) => this.setState({ text: event.target.value })}
         />
         <button type ="submit">Add</button>
-        <form>
-          <input 
-          type="text"
-          value={this.state.text}
-          onChange={this.handleInput}
-           />
-           <button type="submit">Add</button>
         </form>
         <ul>
           {this.state.list.map((item,index)=>{
-            return <li key = {index}>{item}</li>
+            return <li key = {index + index}>{item}</li>
           })}
         </ul>
         <FilmsList />
@@ -87,17 +52,5 @@ class App extends React.Component {
     );
   }
 }
-
-const myApp = new App('stuff');
-
-
-
-
-
-
-
-
-
-
 
 export default App;
