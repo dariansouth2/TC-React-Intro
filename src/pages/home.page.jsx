@@ -2,13 +2,8 @@ import { useState } from "react";
 import './App.css';
 import React from 'react'
 import FilmsList from './components/filmsList';
-import { BrowserRouter } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import { Routes } from "react-router-dom";
-import { Route } from "react-router-dom";
 
-
-function App(props) {
+function HomePage(props) {
 
   let [list, setList] = useState(["ready", "set", "go"]);
   let [text, setText] = useState("");
@@ -37,10 +32,9 @@ function App(props) {
             return <li key = {index + index}>{item}</li>
           })}
         </ul>
-        <FilmsList />
       </div>
     );
   }
 
 
-export default App;
+export default HomePage;
