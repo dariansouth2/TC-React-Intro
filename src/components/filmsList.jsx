@@ -4,7 +4,7 @@ function FilmsList(props){
     let[list, setList] = useState([])
 
     function getFilms(){
-        fetch('https://ghibliapi.herokuapp.com/films')
+        fetch('https://studioghibliapi-d6fc8.web.app/')
         .then((response) => response.json())
         .them((films) => setList(films))
         .catch((error) => console.error(error));
